@@ -21,3 +21,8 @@ if (( $+commands[fortune] )); then
     print
   fi
 fi
+
+if [ -f $WORKON_HOME/.defaultver ];then
+    DEFAULT_VER=`cat "$WORKON_HOME/.defaultver"`
+    workon py${DEFAULT_VER}
+fi
