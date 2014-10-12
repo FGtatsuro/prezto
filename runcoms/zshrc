@@ -11,3 +11,43 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export HISTFILE=~/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt nobeep
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# Vim
+alias vi="vim"
+
+# Java
+JAVA_VERSION=1.6
+JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION)
+
+# Android
+export ANDROID_HOME=`brew --prefix`/opt/android-sdk
+
+# Git
+GIT_CONTRIB_HOME=`brew --prefix`/share/git-core/contrib
+alias ggr='git log --graph --date-order -C -M --pretty=format:"<%h> %ad [%an] %Cgreen%d%Creset %s" --all --date=short'
+
+# Python
+VIRTUALENVWRAPPER_PYTHON=`brew --prefix`/bin/python3.4
+. `brew --prefix`/bin/virtualenvwrapper.sh
+
+# Ruby
+RUBY_HOME=/usr/local/Cellar/ruby/2.1.2
+
+# Groovy
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+# node
+. `brew --prefix`/Cellar/nvm/0.11.1/nvm.sh
+
+# Global
+export GTAGSCONF=/usr/local/share/gtags/gtags.conf
+export GTAGSLABEL=pygments
+
+# PATH
+PATH=$JAVA_HOME/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$PATH
+export PATH
