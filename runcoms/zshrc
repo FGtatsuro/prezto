@@ -6,8 +6,9 @@
 #
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+PREZTO_INIT_CMD="${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [ -s $PREZTO_INIT_CMD ]; then
+  source $PREZTO_INIT_CMD
 fi
 
 # Customize to your needs...
@@ -21,8 +22,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 alias vi="vim"
 
 # Java
-JAVA_VERSION=1.6
-JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION)
+JAVA_HOME_CMD=/usr/libexec/java_home
+if [ -s $JAVA_HOME_CMD ]; then
+  JAVA_VERSION=1.6
+  JAVA_HOME=$($JAVA_HOME_CMD -v $JAVA_VERSION)
+fi
 
 # Android
 export ANDROID_HOME=`brew --prefix`/opt/android-sdk
@@ -32,24 +36,31 @@ GIT_CONTRIB_HOME=`brew --prefix`/share/git-core/contrib
 alias ggr='git log --graph --date-order -C -M --pretty=format:"<%h> %ad [%an] %Cgreen%d%Creset %s" --all --date=short'
 
 # Python
-VIRTUALENVWRAPPER_PYTHON=`brew --prefix`/bin/python3.4
-. `brew --prefix`/bin/virtualenvwrapper.sh
+VIRTUALENVWRAPPER_CMD=`brew --prefix`/bin/virtualenvwrapper.sh
+if [ -s $VIRTUALENVWRAPPER_CMD ]; then
+  VIRTUALENVWRAPPER_PYTHON=`brew --prefix`/bin/python3.4
+  . $VIRTUALENVWRAPPER_CMD
+fi
 
 # Ruby
-RUBY_HOME=/usr/local/Cellar/ruby/2.1.2
+RUBY_HOME=`brew --cellar`/ruby/2.1.2
 
 # Groovy
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 # node
-. `brew --prefix`/Cellar/nvm/0.11.1/nvm.sh
+NVM_CMD=`brew --prefix nvm`/nvm.sh
+if [ -s $NVM_CMD ]; then
+  . $NVM_CMD
+fi
 
 # Global
 export GTAGSCONF=/usr/local/share/gtags/gtags.conf
 export GTAGSLABEL=pygments
 
 # Z
-if [ -e `brew --prefix`/etc/profile.d/z.sh ]; then
+Z_CMD=`brew --prefix`/etc/profile.d/z.sh
+if [ -s $Z_CMD ]; then
   . `brew --prefix`/etc/profile.d/z.sh
 fi
 
