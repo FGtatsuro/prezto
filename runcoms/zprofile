@@ -75,3 +75,32 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
+
+#
+# Path
+#
+
+# Java
+JAVA_HOME_CMD=/usr/libexec/java_home
+if [ -s $JAVA_HOME_CMD ]; then
+  JAVA_VERSION=1.6
+  JAVA_HOME=$($JAVA_HOME_CMD -v $JAVA_VERSION)
+fi
+
+# Git
+GIT_CONTRIB_HOME=`brew --prefix`/share/git-core/contrib
+
+# Ruby
+RUBY_HOME=`brew --cellar`/ruby/2.1.2
+
+# node
+NVM_CMD=`brew --prefix nvm`/nvm.sh
+if [ -s $NVM_CMD ]; then
+  . $NVM_CMD
+fi
+
+PATH=$JAVA_HOME/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$PATH
+
+# anyenv(these commands are on the top of PATH)
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"

@@ -21,18 +21,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # Vim
 alias vi="vim"
 
-# Java
-JAVA_HOME_CMD=/usr/libexec/java_home
-if [ -s $JAVA_HOME_CMD ]; then
-  JAVA_VERSION=1.6
-  JAVA_HOME=$($JAVA_HOME_CMD -v $JAVA_VERSION)
-fi
-
 # Android
 export ANDROID_HOME=`brew --prefix`/opt/android-sdk
 
 # Git
-GIT_CONTRIB_HOME=`brew --prefix`/share/git-core/contrib
 alias ggr='git log --graph --date-order -C -M --pretty=format:"<%h> %ad [%an] %Cgreen%d%Creset %s" --all --date=short'
 
 # Python
@@ -42,17 +34,8 @@ if [ -s $VIRTUALENVWRAPPER_CMD ]; then
   . $VIRTUALENVWRAPPER_CMD
 fi
 
-# Ruby
-RUBY_HOME=`brew --cellar`/ruby/2.1.2
-
 # Groovy
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
-
-# node
-NVM_CMD=`brew --prefix nvm`/nvm.sh
-if [ -s $NVM_CMD ]; then
-  . $NVM_CMD
-fi
 
 # Global
 export GTAGSCONF=/usr/local/share/gtags/gtags.conf
@@ -64,15 +47,7 @@ if [ -s $Z_CMD ]; then
   . `brew --prefix`/etc/profile.d/z.sh
 fi
 
-# PATH
-PATH=$JAVA_HOME/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$PATH
-export PATH
-
 # Color
 export LSCOLORS=ExFxCxdxBxegedabagacad
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-
-# anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
