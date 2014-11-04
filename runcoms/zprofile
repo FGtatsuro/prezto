@@ -102,5 +102,12 @@ fi
 PATH=$JAVA_HOME/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$PATH
 
 # anyenv(these commands are on the top of PATH)
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+# tmux specified: ref. http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea
+if [ -d "$HOME/.anyenv" ]; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
+  for XENV in `ls "$HOME/.anyenv/envs"`
+  do
+    export PATH="$HOME/.anyenv/envs/$XENV/shims:$PATH"
+  done
+fi
