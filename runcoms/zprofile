@@ -99,7 +99,10 @@ if [ -s $NVM_CMD ]; then
   . $NVM_CMD
 fi
 
-PATH=$JAVA_HOME/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$PATH
+# Go
+export GOPATH=~/go
+
+PATH=$JAVA_HOME/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$GOPATH/bin:$PATH
 
 # anyenv(these commands are on the top of PATH)
 # tmux specified: ref. http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea
