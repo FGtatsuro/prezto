@@ -80,13 +80,6 @@ fi
 # Path
 #
 
-# Java
-JAVA_HOME_CMD=/usr/libexec/java_home
-if [ -s $JAVA_HOME_CMD ]; then
-  JAVA_VERSION=1.8
-  export JAVA_HOME=$($JAVA_HOME_CMD -v $JAVA_VERSION)
-fi
-
 # Git
 GIT_CONTRIB_HOME=`brew --prefix`/share/git-core/contrib
 
@@ -102,7 +95,7 @@ fi
 # Go
 export GOPATH=~/go
 
-PATH=$JAVA_HOME/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$GOPATH/bin:$PATH
+PATH=`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$GOPATH/bin:$PATH
 
 # anyenv(these commands are on the top of PATH)
 # tmux specified: ref. http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea
