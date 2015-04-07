@@ -24,6 +24,13 @@ alias vi="vim"
 # Android
 export ANDROID_HOME=`brew --prefix`/opt/android-sdk
 
+# Java
+JAVA_HOME_CMD=/usr/libexec/java_home
+if [ -s $JAVA_HOME_CMD ]; then
+  JAVA_VERSION=1.8
+  export JAVA_HOME=$($JAVA_HOME_CMD -v $JAVA_VERSION)
+fi
+
 # Git
 alias ggr='git log --graph --date-order -C -M --pretty=format:"<%h> %ad [%an] %Cgreen%d%Creset %s" --all --date=short'
 
