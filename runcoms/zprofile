@@ -93,7 +93,7 @@ if [ -s $NVM_CMD ]; then
 fi
 
 # Go
-export GOPATH=~/go
+export GOPATH=~/gowork
 
 PATH=`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$GOPATH/bin:$PATH
 
