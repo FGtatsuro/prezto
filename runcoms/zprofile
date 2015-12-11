@@ -94,6 +94,7 @@ fi
 
 # Go
 export GOPATH=~/gowork
+export GO15VENDOREXPERIMENT=1
 
 PATH=`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$GOPATH/bin:$PATH
 
