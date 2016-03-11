@@ -96,7 +96,7 @@ fi
 export GOPATH=~/gowork
 export GO15VENDOREXPERIMENT=1
 
-PATH=`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$GOPATH/bin:$PATH
+PATH=$GOPATH/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$PATH
 
 # anyenv(these commands are on the top of PATH)
 # tmux specified: ref. http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea
