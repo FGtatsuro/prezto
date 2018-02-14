@@ -22,7 +22,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 alias vi="vim"
 
 # Android
-export ANDROID_HOME=`brew --prefix`/opt/android-sdk
+export ANDROID_SDK_ROOT=`brew --prefix`/share/android-sdk
 
 # Java
 JAVA_HOME_CMD=/usr/libexec/java_home
