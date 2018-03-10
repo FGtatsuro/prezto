@@ -88,14 +88,3 @@ export GOPATH=~/gowork
 export GO15VENDOREXPERIMENT=1
 
 PATH=$GOPATH/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$PATH
-
-# anyenv(these commands are on the top of PATH)
-# tmux specified: ref. http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea
-if [ -d "$HOME/.anyenv" ]; then
-  export PATH="$HOME/.anyenv/bin:$PATH"
-  eval "$(anyenv init -)"
-  for XENV in `ls "$HOME/.anyenv/envs"`
-  do
-    export PATH="$HOME/.anyenv/envs/$XENV/shims:$PATH"
-  done
-fi
