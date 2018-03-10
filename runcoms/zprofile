@@ -83,9 +83,6 @@ fi
 # Git
 GIT_CONTRIB_HOME=`brew --prefix`/share/git-core/contrib
 
-# Ruby
-RUBY_HOME=`brew --cellar`/ruby/2.1.2
-
 # node
 NVM_CMD=`brew --prefix nvm`/nvm.sh
 if [ -s $NVM_CMD ]; then
@@ -96,7 +93,7 @@ fi
 export GOPATH=~/gowork
 export GO15VENDOREXPERIMENT=1
 
-PATH=$GOPATH/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$RUBY_HOME/bin:$PATH
+PATH=$GOPATH/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$PATH
 
 # anyenv(these commands are on the top of PATH)
 # tmux specified: ref. http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea
