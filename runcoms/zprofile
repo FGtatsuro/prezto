@@ -83,12 +83,6 @@ fi
 # Git
 GIT_CONTRIB_HOME=`brew --prefix`/share/git-core/contrib
 
-# node
-NVM_CMD=`brew --prefix nvm`/nvm.sh
-if [ -s $NVM_CMD ]; then
-  . $NVM_CMD
-fi
-
 # Go
 export GOPATH=~/gowork
 export GO15VENDOREXPERIMENT=1
