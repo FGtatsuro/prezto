@@ -91,4 +91,8 @@ export GO15VENDOREXPERIMENT=1
 SQLITE_HOME=/usr/local/opt/sqlite
 OPENSSL_HOME=/usr/local/opt/openssl
 
-PATH=$GOPATH/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$SQLITE_HOME/bin:$OPENSSL_HOME/bin:$PATH
+# Python
+# This must be prior to Python installed by Homebrew.
+BUILD_PYTHON3_HOME=/Users/tatsuro/repos/cpython/py3/latest
+
+PATH=$BUILD_PYTHON3_HOME/bin:$GOPATH/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$SQLITE_HOME/bin:$OPENSSL_HOME/bin:$PATH
