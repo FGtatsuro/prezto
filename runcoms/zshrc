@@ -21,6 +21,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # Vim
 alias vi="nvim"
 
+# Python
+alias python='python3'
+alias pip='pip3'
+
 # Android
 export ANDROID_SDK_ROOT=`brew --prefix`/share/android-sdk
 
