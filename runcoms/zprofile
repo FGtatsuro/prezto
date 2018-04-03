@@ -94,6 +94,6 @@ OPENSSL_HOME=/usr/local/opt/openssl
 # Python
 # This must be prior to Python installed by Homebrew.
 # Build info: https://gist.github.com/FGtatsuro/65747e32e1c647f70d4412c547d477dc
-BUILD_PYTHON3_HOME=$HOME/repos/cpython/py3/latest/Python.framework/Versions/Current/
+BUILD_PYTHON3_HOME=$HOME/repos/cpython/py3/latest/Python.framework/Versions/Current
 
 PATH=$BUILD_PYTHON3_HOME/bin:$GOPATH/bin:`brew --prefix`/bin:$GIT_CONTRIB_HOME/workdir:$SQLITE_HOME/bin:$OPENSSL_HOME/bin:$PATH
